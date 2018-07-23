@@ -13,22 +13,22 @@ void initQueue(Queue *q) {
 }
 
 // insert a new item at the tail of the Queue
-void  enterQueue(Queue *, int) {
+void enterQueue(Queue *q, int data) {
 
 }
 
 // remove/return the item at the head of the Queue
-int   leaveQueue(Queue *) {
+int leaveQueue(Queue *q) {
 
 }
 
 // return the number of items currently in the Queue
-int   lengthQueue(Queue) {
+int lengthQueue(Queue q) {
 
 }
 
 // display the contents of the Queue
-void showQueue(Queue) {
+void showQueue(Queue q) {
 
 }
  
