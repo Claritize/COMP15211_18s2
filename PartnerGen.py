@@ -1,15 +1,5 @@
 import random
 
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
 random.seed(input("\nseed: "))
 
 with open("Members") as f:
@@ -33,4 +23,4 @@ while len(Members) > 1:
     cIndex += 1
 
 if len(Members) == 1:
-    print(bcolors.WARNING + "Loner ".ljust(20, '-') + "-> " + Members.pop())
+    print("\033[93m" + "Loner ".ljust(20, '-') + "-> " + Members.pop())
