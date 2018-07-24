@@ -10,6 +10,8 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+random.seed(input("\nseed: "))
+
 with open("Members") as f:
     Members = f.read().splitlines() 
 
