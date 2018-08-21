@@ -1,8 +1,7 @@
 # Register usage:
-#	- `a' is in $s0
-#	- `a[0]' is in $s1
-#	- `length' is in $s2
-#	- `max_so_far' is in $t0
+#	- `a' is in $a0
+#	- `length' is in $a1
+#	- `max_so_far' is in $v0
 
 .text
 .globl main
@@ -16,22 +15,20 @@ max:
 	sw    $s2, -20($sp)
 	addi  $sp, $sp, -24
 
-	lw    $s1, ($a0)
-	move  $s2, $a1
+	lw    $s1, ($a0) #storing the first item in array
 
 	# base case
 max_base_case:
 	# if (length == 1) return a[0];
-	#TODO
 
+	
 	# recursive case
 max_rec_case:
 	# int max_so_far = max(&a[1], length-1);
-	#TODO
 
-max_else:
-	#TODO
-
+#else statement
+return_max:
+	
 max_return:
 	# epilogue
 	lw    $s2, -16($fp)
