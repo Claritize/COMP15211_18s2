@@ -3,9 +3,6 @@
 #	- `a[0]' is in $s1
 #	- `length' is in $s2
 #	- `max_so_far' is in $t0
-
-.text
-.globl main
 max:
 	# prologue
 	sw    $fp, -4($sp)
@@ -22,16 +19,24 @@ max:
 	# base case
 max_base_case:
 	# if (length == 1) return a[0];
-	#TODO
+	li    $t0, 1
+	bgt   $a1, $t0, max_rec_case
+	lw    $v0, ($a0)
+	j     max_return
 
 	# recursive case
 max_rec_case:
 	# int max_so_far = max(&a[1], length-1);
-	#TODO
-
+	addi  $a0, $a0, 4
+	addi  $a1, $a1, -1
+	jal   max
+	move  $t0, $v0
+	# return (a[0] > max_so_far) ? a[0] : max_so_far;
+	ble   $s1, $t0, max_choice
+	move  $v0, $s1
+	j     max_return
 max_else:
-	#TODO
-
+	move  $v0, $t0
 max_return:
 	# epilogue
 	lw    $s2, -16($fp)
